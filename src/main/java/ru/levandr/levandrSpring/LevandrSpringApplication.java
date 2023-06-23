@@ -10,4 +10,5 @@ public class LevandrSpringApplication {
 		SpringApplication.run(LevandrSpringApplication.class, args);
 	}
 
+
 }
