@@ -7,8 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LevandrSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LevandrSpringApplication.class, args);
-	}
 
+		SpringApplication.run(LevandrSpringApplication.class, args);
+
+	}
 
 }
