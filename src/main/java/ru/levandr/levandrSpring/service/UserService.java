@@ -1,9 +1,8 @@
 package ru.levandr.levandrSpring.service;
 
 
-import model.User;
+import ru.levandr.levandrSpring.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.levandr.levandrSpring.entity.UserEntity;
 import ru.levandr.levandrSpring.exception.UserAlreadyExistException;

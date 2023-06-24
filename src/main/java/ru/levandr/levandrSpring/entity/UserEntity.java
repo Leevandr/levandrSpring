@@ -1,21 +1,30 @@
 package ru.levandr.levandrSpring.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String username;
     private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<TodoEntity> todos;
 
     public UserEntity() {
+    }
+
+    public List<TodoEntity> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<TodoEntity> todos) {
+        this.todos = todos;
     }
 
     public Long getId() {
