@@ -10,14 +10,14 @@ import ru.levandr.levandrSpring.repository.UserRepo;
 import ru.levandr.levandrSpring.service.UserService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/users")
 public class UserController {
 
 
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping("/update")
     public ResponseEntity registration(@RequestBody UserEntity user) {
         //return ResponseEntity.ofNullable("");
         try {
@@ -30,7 +30,7 @@ public class UserController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public ResponseEntity getOneUser(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(userService.getOne(id));
@@ -40,4 +40,19 @@ public class UserController {
             return ResponseEntity.badRequest().body("NO WORK!");
         }
     }
+
+    @DeleteMapping("/{id}")
+
+    public ResponseEntity deleteUser(@PathVariable Long id){
+
+        try {
+            return ResponseEntity.ok(userService.delete(id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("NO WORK!");
+        }
+
+    }
+
+
+
 }
