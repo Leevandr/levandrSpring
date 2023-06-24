@@ -1,6 +1,7 @@
 package ru.levandr.levandrSpring.service;
 
 
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,12 +24,12 @@ public class UserService {
 
     }
 
-    public UserEntity getOne (Long id) throws UserNotFoundException {
+    public User getOne (Long id) throws UserNotFoundException {
         UserEntity user = userRepo.findById(id).get();
         if(user == null){
             throw new UserNotFoundException("This username not found");
         }
-        return user;
+        return User.toModel(user);
     }
 
 
